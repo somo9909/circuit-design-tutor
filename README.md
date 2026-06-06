@@ -12,10 +12,10 @@ An interactive AI-powered tutoring app for electronics and circuit design, built
 ## 📸 Screenshots
 
 ### 🔐 API Key Entry Screen
-![API Key Page](screenshots/api_key_page.png)
+![API Key Page](public/api_key_page.png)
 
 ### 🏠 Homepage / Chat Interface
-![Homepage](screenshots/homepage.png)
+![Homepage](public/homepage.png)
 
 ---
 
