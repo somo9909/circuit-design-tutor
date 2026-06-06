@@ -134,23 +134,6 @@ Refreshing the page clears the key — you'll need to re-enter it.
 
 ---
 
-## 📁 Adding Screenshots to GitHub
-
-Place your screenshots in a `screenshots/` folder at the project root:
-
-```bash
-mkdir screenshots
-# Copy your files:
-# screenshots/api_key_page.png
-# screenshots/homepage.png
-
-git add screenshots/
-git commit -m "docs: add screenshots"
-git push
-```
-
----
-
 ## 📄 License
 
 MIT License — free to use, modify, and distribute.
