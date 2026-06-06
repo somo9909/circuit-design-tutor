@@ -1,0 +1,159 @@
+:root {
+  --bg-deep: #060b18;
+  --bg-panel: #0c1428;
+  --bg-card: #101d35;
+  --bg-input: #0a1422;
+  --accent-cyan: #00f5ff;
+  --accent-cyan-dim: rgba(0, 245, 255, 0.15);
+  --accent-cyan-mid: rgba(0, 245, 255, 0.35);
+  --accent-amber: #ffb300;
+  --accent-amber-dim: rgba(255, 179, 0, 0.12);
+  --accent-green: #00ff88;
+  --accent-green-dim: rgba(0, 255, 136, 0.12);
+  --accent-red: #ff3860;
+  --text-primary: #e8f4f8;
+  --text-secondary: #7a9bb5;
+  --text-muted: #3d5a70;
+  --border: rgba(0, 245, 255, 0.18);
+  --border-subtle: rgba(0, 245, 255, 0.07);
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-body: 'Exo 2', sans-serif;
+  --font-display: 'Rajdhani', sans-serif;
+  --glow-cyan: 0 0 20px rgba(0, 245, 255, 0.3);
+  --glow-amber: 0 0 20px rgba(255, 179, 0, 0.3);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 245, 255, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 100% 50%, rgba(0, 120, 180, 0.05) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,245,255,0.02) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,245,255,0.02) 40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--accent-cyan-mid); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+/* KaTeX math rendering */
+.katex { color: var(--accent-amber) !important; font-size: 1.05em; }
+.katex-display { margin: 1rem 0; overflow-x: auto; }
+
+/* Markdown content styles */
+.md-content h1, .md-content h2, .md-content h3 {
+  font-family: var(--font-display);
+  color: var(--accent-cyan);
+  letter-spacing: 0.05em;
+  margin: 1.2rem 0 0.5rem;
+}
+.md-content h2 { font-size: 1.15rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.3rem; }
+.md-content h3 { font-size: 1rem; color: var(--accent-amber); }
+.md-content p { margin-bottom: 0.75rem; color: var(--text-primary); }
+.md-content ul, .md-content ol { padding-left: 1.4rem; margin-bottom: 0.75rem; }
+.md-content li { margin-bottom: 0.3rem; color: var(--text-primary); }
+.md-content strong { color: var(--accent-cyan); font-weight: 600; }
+.md-content em { color: var(--accent-amber); }
+.md-content code {
+  font-family: var(--font-mono);
+  background: rgba(0, 245, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.88em;
+  color: var(--accent-green);
+}
+.md-content pre {
+  background: #070e1c;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+.md-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85em;
+}
+.md-content blockquote {
+  border-left: 3px solid var(--accent-cyan);
+  padding-left: 1rem;
+  margin: 0.75rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+.md-content table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; }
+.md-content th {
+  background: var(--accent-cyan-dim);
+  color: var(--accent-cyan);
+  padding: 0.4rem 0.75rem;
+  text-align: left;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  border: 1px solid var(--border);
+}
+.md-content td {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+.md-content tr:nth-child(even) td { background: rgba(0,245,255,0.03); }
+
+/* Animations */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
